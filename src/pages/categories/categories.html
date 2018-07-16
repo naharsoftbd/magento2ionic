@@ -1,0 +1,28 @@
+<!--
+  Generated template for the CategoriesPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Categories</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <div *ngFor="let category of categories.children_data" (click)="viewChildCategory(category)">
+	 <button ion-item *ngIf="category.is_active==1">
+      {{ category.name }}
+    </button>
+	</div>
+  </ion-list>
+ 
+  <div *ngIf="selectedItem" padding>
+    You navigated here from <b>{{selectedItem.title}}</b>
+  </div>
+</ion-content>

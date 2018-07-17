@@ -1,0 +1,51 @@
+<ion-header>
+	<ion-navbar color="light">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+<!--     <ion-searchbar color="primary"
+                   [(ngModel)]="queryText"
+                   (ionInput)="updateSchedule()"
+                   placeholder="Search">
+    </ion-searchbar> -->
+     <ion-searchbar (input)="getItems($event)"></ion-searchbar>
+   </ion-navbar>
+</ion-header>
+
+
+
+ <ion-content class="products">
+
+<!--   <ion-list>
+    <ion-item>
+      <ion-note item-left>
+        Duplicate products for VirtualScroll demo
+      </ion-note>
+    </ion-item>
+  </ion-list> -->
+
+  <ion-grid [virtualScroll]="Products" approxItemHeight="40px">
+    <ion-row *virtualItem="let product" (click)="goToProductDetail(product)">
+      <ion-col width-33>
+        <ion-img class="v-img" [src]="product.imgSrc"></ion-img>
+      </ion-col>
+      <ion-col width-67>
+        <p>{{product.name}}</p>
+        <!-- <ion-badge item-right>{{prodict.rating}}</ion-badge> 340 ratings -->
+        <p class="price"> {{ product.price | currency: 'USD' }} </p>
+      </ion-col>
+      <ion-item-options side="left">
+        <button primary>
+          <ion-icon name="text"></ion-icon>
+          Text
+        </button>
+        <button secondary>
+          <ion-icon name="call"></ion-icon>
+          Call
+        </button>
+      </ion-item-options>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>
+

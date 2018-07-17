@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
-//import { CategoryPage } from '../category/category';
+import { IonicPage, NavController, NavParams, ModalController, ViewController } from 'ionic-angular';
+import { CommonProvider } from '../../providers/common/common';
+import { SearchPage } from '../search/search';
 
 /**
  * Generated class for the CategoryPage page.
@@ -17,8 +18,9 @@ import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angu
 export class CategoryPage {
 	
 	category: any = [];
+	products: any = [];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController) {
+  constructor(public commonProvider: CommonProvider, public viewCtrl: ViewController, public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController) {
 	  this.category = this.navParams.get('category');
 	  console.log(this.category);
   }
@@ -29,11 +31,23 @@ export class CategoryPage {
   
   getProducts(subcategory){
 	  if(subcategory.children_data.length){
-	  const categoryView = this.modalCtrl.create(CategoryPage, { category: subcategory.children_data });
+	    const categoryView = this.modalCtrl.create(CategoryPage, { category: subcategory.children_data });
 		categoryView.present();
 	  }else{
-		console.log(subcategory);
+		 this.commonProvider.getProductsByCategory(subcategory.id).subscribe((products) => {
+				this.products = products.items;
+				this.navCtrl.push(SearchPage, {
+				  'Products': products.items
+				});
+				
+		});
+		//console.log(subcategory.id);
+		//this.viewCtrl.dismiss();
 	  }
+  }
+  
+  dismiss() {
+    this.viewCtrl.dismiss();
   }
 
 }

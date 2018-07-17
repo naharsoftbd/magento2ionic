@@ -1,0 +1,17 @@
+.products {
+	ion-row {
+		border-bottom: solid 1px #d8d8d8;
+	}
+	.price {
+		font-weight: bold;
+    font-size: 18px;
+	}
+	.v-img {
+		contain: none;
+	}
+
+	.products .v-img img{
+	height:120px;
+	width: auto;
+	}
+}

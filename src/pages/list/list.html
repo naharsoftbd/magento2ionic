@@ -7,17 +7,49 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content>
-  <ion-list>
-    <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">
-      <ion-icon [name]="item.icon" item-start></ion-icon>
-      {{item.title}}
-      <div class="item-note" item-end>
-        {{item.note}}
-      </div>
-    </button>
-  </ion-list>
-  <div *ngIf="selectedItem" padding>
-    You navigated here from <b>{{selectedItem.title}}</b>
-  </div>
+<ion-content style="background-color: #f4f4f4;">
+  <ion-grid>
+
+    <ion-row>
+      <ion-col col-12>
+          <img src="assets/imgs/row_1.png">
+      </ion-col>
+      
+    </ion-row>
+
+    <ion-row>
+      <ion-col col-12>
+          <img src="assets/imgs/row_2.png">
+      </ion-col>
+      
+    </ion-row>
+
+    <ion-row>
+      <ion-col col-6>
+          <img src="assets/imgs/row_3_1.png">
+      </ion-col>
+      <ion-col col-6>
+          <img src="assets/imgs/row_3_2.png">
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col col-6>
+          <img src="assets/imgs/row_4_1.png">
+      </ion-col>
+      <ion-col col-6>
+          <img src="assets/imgs/row_4_2.png">
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col col-6>
+          <img src="assets/imgs/row_5_1.png">
+      </ion-col>
+      <ion-col col-6>
+          <img src="assets/imgs/row_5_2.png">
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
 </ion-content>

@@ -1,0 +1,60 @@
+page-auth {
+
+#auth{
+background-image: url('../assets/imgs/auth-bg.jpg') ;	
+     background-repeat: no-repeat;
+     background-size: cover;
+	    background-position: center;
+       
+	
+}
+
+.auth-container .row-center ion-img {
+    position:relative;
+    width:110px !important ;
+    margin:0 auto;
+    display:block;
+    transform:translateY(-50%);
+    margin-top:30px;
+        background-color: rgb(0, 0, 0);
+    /* RGBa with 0.6 opacity */
+    background-color: rgba(240, 237, 237, 0.6);
+     filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);
+    /* For IE 8*/
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";
+    border:5px solid #fff;
+    border-radius:3px;
+    padding: 10px;
+}
+
+.heading{
+font-size: 28px;
+    font-weight: bold;
+    text-align: center;
+    color: #fff;
+    padding: 20px;
+    line-height: 45px;
+    padding-top: 64px;
+}
+
+#auth .scroll-content{
+	background:#000;
+	opacity:.6;
+}
+
+#auth .button-block{
+	margin-top:10px;
+    color:#fff;
+}
+
+.terms-cond
+{
+ text-align:center;
+ padding-top:80px;
+font-weight:bold;
+ display:block;
+ text-decoration:none;
+ color:#fff;
+}
+
+}

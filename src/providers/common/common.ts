@@ -42,12 +42,4 @@ export class CommonProvider {
 			let options = new RequestOptions({ headers:headers});
             return this.http.get(apiURL+'categories/'+id,options).map(res => res.json());
   }
-  getProductsByCategory(id){
-			var headers = new Headers();
-			headers.append('content-type','application/json');
-			headers.append('X-Requested-With', 'XMLHttpRequest');
-			headers.append('Authorization', "Bearer" + accessToken);
-			let options = new RequestOptions({ headers:headers});
-			return this.http.get(apiURL+'products/?searchCriteria[filter_groups][0][filters][0][field]=category_id&searchCriteria[filter_groups][0][filters][0][value]='+id,options).map(res => res.json());
-  }
 }

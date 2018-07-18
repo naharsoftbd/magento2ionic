@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ModalController, ViewController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 import { CommonProvider } from '../../providers/common/common';
 import { CategoryPage } from '../category/category';
-import { SearchPage } from '../search/search';
 
 /**
  * Generated class for the CategoriesPage page.
@@ -22,9 +21,8 @@ export class CategoriesPage {
     loading: any;
 	childcategories: any = [];
 	childcategoriesid: any = [];
-	products: any = [];
 
-  constructor(public viewCtrl: ViewController, public navCtrl: NavController, public navParams: NavParams,public commonProvider: CommonProvider,public modalCtrl: ModalController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,public commonProvider: CommonProvider,public modalCtrl: ModalController) {
   }
 
   ionViewDidLoad() {
@@ -39,13 +37,7 @@ export class CategoriesPage {
 	 const categoryView = this.modalCtrl.create(CategoryPage, { category: category.children_data });
      categoryView.present();
 	}else {
-	 this.commonProvider.getProductsByCategory(category.id).subscribe((products) => {
-				this.products = products.items;
-				this.navCtrl.push(SearchPage, {
-				  'Products': products.items
-				});
-				
-		});
+	 console.log(category.children_data);
 	}
   }
 

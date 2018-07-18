@@ -1,61 +1,42 @@
-import {  Component, ViewChild } from '@angular/core';
+import { Component} from '@angular/core';
+//import { Http, Headers, RequestOptions } from '@angular/http';
+import 'rxjs/Rx';
+import 'rxjs/add/operator/map';
+import { NavController, LoadingController } from 'ionic-angular';
+import { CommonProvider } from '../../providers/common/common';
 
-
-import { NavController, MenuController, Slides,Platform } from 'ionic-angular';
-
-
-import { SearchPage } from '../search/search';
-
- import { GoogleAnalytics } from '@ionic-native/google-analytics';
-  
 @Component({
-	selector: 'home-page',
+  selector: 'page-home',
   templateUrl: 'home.html'
 })
-
 export class HomePage {
-
-  // products: Product;
-  @ViewChild('adSlider') slider: Slides;
-
-  products: Array<any>;
-  banners: String[];
-
-  constructor(
-
-    public navCtrl: NavController, 
-    public menu: MenuController,
-
-    public platform: Platform,
-   private ga: GoogleAnalytics
- ) {
-
-
-
-    this.banners = [
-     'assets/imgs/ica-slidebox-img-1.png',
-      'assets/imgs/ica-slidebox-img-2.png',
-      'assets/imgs/ica-slidebox-img-1.png'
-    ]
-
-
-}
-
-
-
-  trackEvent() {
-    let active = this.slider.getActiveIndex();
-    this.platform.ready().then(() => {
-      this.ga.trackEvent("Slider", "Slider-Changed", "Label", active);
-    });
-  }
-
-
-
+	
+	categories: any = []
+    loading: any;
+ 
+    username: string;
+    password: string;
  
 
-  search() {
-    this.navCtrl.push(SearchPage);
+  constructor(public navCtrl: NavController, public commonProvider: CommonProvider, public loadingCtrl: LoadingController) {
+
   }
+  
+  ionViewDidLoad(){
+		   /* var headers = new Headers();
+			headers.append('content-type','application/json');
+			headers.append('X-Requested-With', 'XMLHttpRequest');
+			headers.append('Authorization', "Bearer" +' betq1rsl4odp9ta33t7auswcfffc8yhv');
+			let options = new RequestOptions({ headers:headers});
+        this.http.get('http://192.168.0.250/utshobm/rest/V1/categories/',options).map(res => res.json()).subscribe((categories) => {
+            this.categories = categories;
+			console.log(categories);
+        });*/
+		
+ 
+    }
+	
+	
+ 
 
 }
